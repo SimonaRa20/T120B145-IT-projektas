@@ -7,17 +7,39 @@ include("include/functions.php");
 session_start();
 
 ?>
-
 <style>
+    #zinutes {
+        text-align: center;
+        font-family: Arial;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #zinutes td {
+        border: 5px solid #ddd;
+        padding: 8px;
+    }
+
+    #zinutes th {
+        background-color: #f2f2f3;
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: left
+    }
+
+    #zinutes tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
     a:visited {
         color: black;
+
     }
 
     a:hover {
         color: grey;
     }
 </style>
-
 
 <html>
 
@@ -30,10 +52,7 @@ session_start();
 <body>
     <div>
         <img src="include/new_top.png">
-
     </div>
-
-
 
     <html>
 
@@ -43,19 +62,19 @@ session_start();
         $db = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
         $user_id = $_SESSION['userid'];
         $sql = "SELECT b.title AS title, SUM(CASE WHEN s.stake_title = b.stake_win AND s.id_user = $user_id THEN s.amount ELSE 0 END) as stake, 
-                                     SUM(CASE WHEN s.stake_title = b.stake_win THEN s.amount ELSE 0 END) AS sumawin, 
-                                     SUM(CASE WHEN s.stake_title != b.stake_win THEN s.amount ELSE 0 END) AS nosumawin
-            FROM stakes s
-            LEFT JOIN bets b ON b.id = s.id_bet
-            WHERE b.status = 1
-            GROUP BY b.id HAVING SUM(CASE WHEN s.stake_title = b.stake_win AND s.id_user = $user_id THEN s.amount ELSE 0 END)>0 ";
+                                         SUM(CASE WHEN s.stake_title = b.stake_win THEN s.amount ELSE 0 END) AS sumawin, 
+                                         SUM(CASE WHEN s.stake_title != b.stake_win THEN s.amount ELSE 0 END) AS nosumawin
+                FROM stakes s
+                LEFT JOIN bets b ON b.id = s.id_bet
+                WHERE b.status = 1
+                GROUP BY b.id HAVING SUM(CASE WHEN s.stake_title = b.stake_win AND s.id_user = $user_id THEN s.amount ELSE 0 END)>0 ";
 
 
         $result = mysqli_query($db, $sql);
         if (mysqli_num_rows($result) == 0) {
-            echo "Laimėtų lažybų neturite.";
-            echo "<div style=\"margin-left: auto;\">
-            <a href=\"prisijungimas.php\">Atgal</a>
+            echo "<h3>Laimėtų lažybų neturite.<h3>";
+            echo "<div>
+            <a style=\"font-size: 15px; font-weight: normal;\" href=\"prisijungimas.php\">Atgal</a>
         </div>";
             exit;
         }
@@ -64,10 +83,11 @@ session_start();
             exit;
         }
         ?>
-        <center>
+        <div>
             <h3>Lažybų sąrašas</h3>
-        </center>
-        <table class="main" style="text-align: center;" border="1" cellspacing="0" cellpadding="3">
+    </div>
+        <table id="zinutes" style="margin-left: auto;
+  margin-right: auto; width: 70%">
 
             <?php
             if ((mysqli_num_rows($result) == 0)) {

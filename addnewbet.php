@@ -1,12 +1,15 @@
-<html>
-<style>
-    /* a:visited {
-        color: black;
-  
+<?php
+
+session_start();
+// sesijos kontrole
+if (!isset($_SESSION['prev']) || (($_SESSION['prev'] != "index") && ($_SESSION['prev'] != "procaddnewbet") && ($_SESSION['prev'] != "addnewbet"))) {
+    header("Location: logout.php");
+    exit;
 }
-a:hover {
-    color: grey;
-} */
+$_SESSION['prev'] = "addnewbet";
+
+?>
+<style>
 
     a:visited {
         color: black;
@@ -44,19 +47,6 @@ a:hover {
     }
 </style>
 
-<?php
-
-session_start();
-// sesijos kontrole
-if (!isset($_SESSION['prev']) || (($_SESSION['prev'] != "index") && ($_SESSION['prev'] != "procaddnewbet") && ($_SESSION['prev'] != "addnewbet"))) {
-    header("Location: logout.php");
-    exit;
-}
-$_SESSION['prev'] = "addnewbet";
-
-?>
-
-</html>
 
 <html>
 
@@ -111,3 +101,4 @@ $_SESSION['prev'] = "addnewbet";
     </div>
     <br>
 </body>
+</html>

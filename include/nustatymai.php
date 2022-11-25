@@ -6,6 +6,7 @@ define("DB_PASS", "stud");
 define("DB_NAME", "vartvald");
 define("TBL_USERS", "users");
 define("TBL_BETS", "bets");
+define("TBL_STAKES", "stakes");
 $user_roles=array(      // vartotojų rolių vardai lentelėse ir  atitinkamos userlevel reikšmės
 	"Administratorius"=>"9",
 	"Registruotas vartotojas"=>"4",);   // galioja ir vartotojas "guest", kuris neturi userlevel

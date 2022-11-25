@@ -19,7 +19,7 @@ date_default_timezone_set("Europe/Vilnius");
     }
 
     #zinutes td {
-        border: 1px solid #777777;
+        border: 5px solid #ddd;
         padding: 8px;
     }
 
@@ -82,7 +82,7 @@ date_default_timezone_set("Europe/Vilnius");
                             <h3>Lažybų sąrašas</h3>
                             <table id="zinutes">
                                 <tr>
-                                    <td><b>Lažybos</b></td>
+                                    <td  style="background-color: #ddd;" ><b>Lažybos</b></td>
                                 </tr>
                                 <?php
                                 while ($row = mysqli_fetch_assoc($result)) {

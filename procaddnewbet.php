@@ -39,7 +39,7 @@ if ($closeCon) {
     exit;
 } else {
     $table = TBL_BETS;
-    $query = "INSERT INTO " . $table. " (title, stake_nr1, stake_nr2, stake_win, status) VALUES ('$title', '$stake_nr1','$stake_nr2', '', 0)";
+    $query = "INSERT INTO " . $table. " (title, stake_nr1, stake_nr2, stake_win, status) VALUES ('$title', '$stake1','$stake2', '', 0)";
     $run = mysqli_query($con, $query);
     mysqli_close($con);
     header("Location:prisijungimas.php");

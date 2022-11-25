@@ -69,14 +69,13 @@ include("include/functions.php");
     }
 
     #zinutes td {
-        border: 1px solid #777777;
+        border: 5px solid #ddd;
         padding: 8px;
     }
 
     #zinutes th {
         background-color: #f2f2f2;
         padding: 8px;
-        border: 1px solid #ddd;
         text-align: left
     }
 
@@ -108,7 +107,7 @@ include("include/functions.php");
                             <h3>Lažybų sąrašas</h3>
                             <table id="zinutes">
                                 <tr>
-                                    <td><b>Lažybos</b></td>
+                                    <td style="background-color: #ddd;"><b>Lažybos</b></td>
                                 </tr>
                                 <?php
                                 while ($row = mysqli_fetch_assoc($result)) {
