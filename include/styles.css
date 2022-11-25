@@ -1,0 +1,56 @@
+table.meniu {
+    text-align: left;
+    /* background-color:rgb(197, 197, 197); */
+}
+
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(219, 219, 219);
+    padding: 1px;
+    /* background-color: rgb(219, 219, 219);                 */
+}
+table.backlink {  
+    margin-left:auto; 
+    margin-right:auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    border-width: 13px;
+    border-style: solid;
+    border-color: red;    
+    background-color: grey;   
+}
+body {
+    /* width: 100%; */
+    text-align:center;
+    /* background-color: rgb(219, 219, 219); */
+}   
+form.login {
+    margin-bottom:0;
+    padding: 50px; 
+    /* background-color: rgb(197, 197, 197);         */
+}
+input.s1 {   
+    width:100%;
+    font-size:13pt;
+    text-align:left;
+}
+img{
+    width: 500px;
+}
+
+table.main, th.main, td.main {
+    font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+    border: 1px solid black;
+}
+
+td.main, th.main {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
